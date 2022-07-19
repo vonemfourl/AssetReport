@@ -1,0 +1,69 @@
+<core:FragmentDefinition
+	xmlns:core="sap.ui.core"
+	xmlns:table="sap.ui.table"
+	xmlns="sap.m"
+>
+	<table:Column
+		id="FioriTools::ColumnExtension"
+		width="7rem"
+	>
+		<Label text="Contract Start Date"/>
+		<table:template>
+			<Text text="{
+				path: 'Vbegdat',
+				type: 'sap.ui.model.type.Date',
+				formatOptions: {
+					pattern: 'MM/dd/yyyy',
+					UTC: true
+				}
+			}"/>
+		</table:template>
+		<table:customData>
+			<core:CustomData
+				key="p13nData"
+				value='\{&quot;columnIndex&quot;: &quot;13&quot;, &quot;columnKey&quot;: &quot;ColumnExtension&quot;, &quot;leadingProperty&quot;: &quot;Vbegdat&quot;}'
+			/>
+		</table:customData>
+	</table:Column>
+	<table:Column
+		id="FioriTools::ColumnExtension1"
+		width="7rem"
+	>
+		<Label text="Contract End Date"/>
+		<table:template>
+			<Text text="{
+				path: 'Venddat',
+				type: 'sap.ui.model.type.Date',
+				formatOptions: {
+					pattern: 'MM/dd/yyyy',
+					UTC: true
+				}
+			}"/>
+		</table:template>
+		<table:customData>
+			<core:CustomData
+				key="p13nData"
+				value='\{&quot;columnIndex&quot;: &quot;14&quot;, &quot;columnKey&quot;: &quot;ColumnExtension1&quot;, &quot;leadingProperty&quot;: &quot;Venddat&quot;}'
+			/>
+		</table:customData>
+	</table:Column>
+	<table:Column
+		id="FioriTools::ColumnExtension2"
+		hAlign="Center"
+	>
+		<Label text="Obsolete"/>
+		<table:template>
+			<ObjectStatus
+				visible="{= ${Obsolete} === 'X'}"
+				icon="sap-icon://status-error"
+				state="Error"
+			/>
+		</table:template>
+		<table:customData>
+			<core:CustomData
+				key="p13nData"
+				value='\{&quot;columnIndex&quot;: &quot;16&quot;, &quot;columnKey&quot;: &quot;ColumnExtension2&quot;, &quot;leadingProperty&quot;: &quot;Obsolete&quot;}'
+			/>
+		</table:customData>
+	</table:Column>
+</core:FragmentDefinition>

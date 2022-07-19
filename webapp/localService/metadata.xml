@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema Namespace="ZADVERTISING_SPONSORSHIP_SRV" xml:lang="en" sap:schema-version="1" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+            <EntityType Name="Quotation" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="QuotationNum"/>
+                </Key>
+                <Property Name="QuotationNum" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Quotation Number" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="Advertiser" Type="Edm.String" MaxLength="10" sap:unicode="false" sap:label="Business Partner Number" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="Status" Type="Edm.String" MaxLength="3" sap:unicode="false" sap:label="Status" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="ContractNum" Type="Edm.String" MaxLength="10" sap:unicode="false" sap:label="Contract Number" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="ContractAccount" Type="Edm.String" MaxLength="12" sap:unicode="false" sap:label="Contract Account" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="ContractObject" Type="Edm.String" MaxLength="20" sap:unicode="false" sap:label="Contract Object" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="InvoiceNo" Type="Edm.String" MaxLength="12" sap:unicode="false" sap:label="Invoice" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="ParkInvoiceNo" Type="Edm.String" MaxLength="10" sap:unicode="false" sap:label="Invoice" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="FiscalYear" Type="Edm.String" MaxLength="4" sap:unicode="false" sap:label="Fiiscal Year" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="CompanyCode" Type="Edm.String" MaxLength="4" sap:unicode="false" sap:label="Comapny Code" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="StatusDescription" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Status Description" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ContractAccountDesc" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Contract Account Description" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ContractObjectDesc" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Contract Object Description" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <NavigationProperty Name="ItemDetails" Relationship="ZADVERTISING_SPONSORSHIP_SRV.Quotation_To_ItemDetails" FromRole="FromRole_Quotation_To_ItemDetails" ToRole="ToRole_Quotation_To_ItemDetails"/>
+                <NavigationProperty Name="PricingComponent" Relationship="ZADVERTISING_SPONSORSHIP_SRV.Quotation_To_PricingComponent" FromRole="FromRole_Quotation_To_PricingComponent" ToRole="ToRole_Quotation_To_PricingComponent"/>
+            </EntityType>
+            <EntityType Name="ItemDetails" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="AssetId"/>
+                </Key>
+                <Property Name="QuotationNum" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Quotation Number" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="AssetId" Type="Edm.String" Nullable="false" MaxLength="12" sap:unicode="false" sap:label="Asset Id" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="AssetDescr" Type="Edm.String" MaxLength="255" sap:unicode="false" sap:label="Asset Descr" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="AssetSaleValue" Type="Edm.Decimal" Precision="15" Scale="2" sap:unicode="false" sap:label="Asset Sale Value" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Text" Type="Edm.String" MaxLength="255" sap:unicode="false" sap:label="Text" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="FromDate" Type="Edm.DateTime" Precision="0" sap:unicode="false" sap:label="From Date" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ToDate" Type="Edm.DateTime" Precision="0" sap:unicode="false" sap:label="To Date" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Location" Type="Edm.String" MaxLength="80" sap:unicode="false" sap:label="Location" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="PricingComponent" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="QuotationNum"/>
+                    <PropertyRef Name="Type"/>
+                </Key>
+                <Property Name="QuotationNum" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Quotation Number" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Type" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Type" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="RecAmount" Type="Edm.Decimal" Precision="15" Scale="2" sap:unicode="false" sap:label="Recoverable Amount" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="NonRecAmount" Type="Edm.Decimal" Precision="15" Scale="2" sap:unicode="false" sap:label="Non-Rec Amount" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="File" m:HasStream="true" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Folderid"/>
+                </Key>
+                <Property Name="QuotationNum" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Vendor" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Mimetype" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="FileName" Type="Edm.String" Nullable="false" MaxLength="255" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="FileSize" Type="Edm.String" Nullable="false" MaxLength="12" sap:unicode="false" sap:label="File Size" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="FileContent" Type="Edm.Binary" Nullable="false" sap:unicode="false" sap:label="Content" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Folderid" Type="Edm.String" Nullable="false" MaxLength="255" sap:unicode="false" sap:label="Folder Id" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="Partner" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Advertiser"/>
+                </Key>
+                <Property Name="Advertiser" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Business Partner Number" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="AdvertiserName" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Business Partner Name" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="AssetInventoryRegister" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Anln1"/>
+                </Key>
+                <Property Name="Anln1" Type="Edm.String" Nullable="false" MaxLength="12" sap:unicode="false" sap:label="Asset" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="AssetName" Type="Edm.String" MaxLength="60" sap:unicode="false" sap:label="Asset Name" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="Anlhtxt" Type="Edm.String" MaxLength="80" sap:unicode="false" sap:label="Asset Description" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="Specifics" Type="Edm.String" MaxLength="120" sap:unicode="false" sap:label="Specifics" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="Fincd" Type="Edm.String" MaxLength="16" sap:unicode="false" sap:label="Asset Fin code" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="FincdText" Type="Edm.String" MaxLength="120" sap:unicode="false" sap:label="Asset Fin code Description" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="AssetSubCat" Type="Edm.String" MaxLength="16" sap:unicode="false" sap:label="Asset Sub-Category" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="AssetSubCatDescr" Type="Edm.String" MaxLength="60" sap:unicode="false" sap:label="Asset Sub-Category Description" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="AssetAddress" Type="Edm.String" MaxLength="120" sap:unicode="false" sap:label="Asset Address" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="AssetCat" Type="Edm.String" MaxLength="60" sap:unicode="false" sap:label="Asset Category" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="Vbegdat" Type="Edm.DateTime" Precision="7" sap:unicode="false" sap:label="Contract Start Date" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="Venddat" Type="Edm.DateTime" Precision="7" sap:unicode="false" sap:label="Contract End Date" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="Ansta" Type="Edm.String" MaxLength="20" sap:unicode="false" sap:label="Status" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="LegacyId" Type="Edm.String" MaxLength="20" sap:unicode="false" sap:label="Legacy Asset ID" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="Obsolete" Type="Edm.String" MaxLength="1" sap:unicode="false" sap:label="Obsolete" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="CreatedOn" Type="Edm.DateTime" Precision="7" sap:unicode="false" sap:label="Created On" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="CreatedBy" Type="Edm.String" MaxLength="80" sap:unicode="false" sap:label="Created By" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="StatusDescription" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Status Description" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <NavigationProperty Name="ToHistory" Relationship="ZADVERTISING_SPONSORSHIP_SRV.Asset_To_Histroy" FromRole="FromRole_Asset_To_Histroy" ToRole="ToRole_Asset_To_Histroy"/>
+            </EntityType>
+            <EntityType Name="Approver" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Agent"/>
+                    <PropertyRef Name="ValueFrom"/>
+                    <PropertyRef Name="ValueTo"/>
+                </Key>
+                <Property Name="Agent" Type="Edm.String" Nullable="false" MaxLength="12" sap:unicode="false" sap:label="Approver" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="AgentName" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:label="Approver Name" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ValueFrom" Type="Edm.Decimal" Nullable="false" Precision="11" Scale="2" sap:unicode="false" sap:label="Value from" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ValueTo" Type="Edm.Decimal" Nullable="false" Precision="11" Scale="2" sap:unicode="false" sap:label="ValueTo" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="Users" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="UserId"/>
+                </Key>
+                <Property Name="UserId" Type="Edm.String" Nullable="false" MaxLength="12" sap:unicode="false" sap:label="User ID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="UserName" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:label="User Name" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="Assets" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="AssetId"/>
+                </Key>
+                <Property Name="AssetId" Type="Edm.String" Nullable="false" MaxLength="12" sap:unicode="false" sap:label="Asset" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Description" Type="Edm.String" Nullable="false" MaxLength="50" sap:unicode="false" sap:label="Description" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="AttachmentsList" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="QuotationNum"/>
+                    <PropertyRef Name="Folderid"/>
+                </Key>
+                <Property Name="QuotationNum" Type="Edm.String" Nullable="false" MaxLength="12" sap:unicode="false" sap:label="Quotation" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="FileName" Type="Edm.String" MaxLength="255" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Folderid" Type="Edm.String" Nullable="false" MaxLength="255" sap:unicode="false" sap:label="Folder Id" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="UploadedBy" Type="Edm.String" MaxLength="80" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="UploadedOn" Type="Edm.DateTime" Precision="7" sap:unicode="false" sap:label="Date" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="ContractAccountCategory" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Advertiser"/>
+                    <PropertyRef Name="ContractObject"/>
+                </Key>
+                <Property Name="Advertiser" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Business Partner Number" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ContractAccount" Type="Edm.String" Nullable="false" MaxLength="12" sap:unicode="false" sap:label="Contract Account" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ContractObject" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="Contract Object" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ContractAccountDesc" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Contract Account Description" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ContractObjectDesc" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Contract Object Description" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="PricingTypes" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Type"/>
+                </Key>
+                <Property Name="Type" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Pricing Type" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Description" Type="Edm.String" MaxLength="40" sap:unicode="false" sap:label="Description" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="InstanceDetail" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="InstanceId"/>
+                </Key>
+                <Property Name="InstanceId" Type="Edm.String" Nullable="false" MaxLength="12" sap:unicode="false" sap:label="Instance ID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="QuotationNum" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Quotation Number" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="FinCodes" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Fincd"/>
+                </Key>
+                <Property Name="Fincd" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Fin code" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="FincdText" Type="Edm.String" Nullable="false" MaxLength="60" sap:unicode="false" sap:label="Fin Code Description" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="FpsCodes" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Fpscd"/>
+                </Key>
+                <Property Name="Fpscd" Type="Edm.String" Nullable="false" MaxLength="16" sap:unicode="false" sap:label="F/P/S Fin code" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="FpscdText" Type="Edm.String" Nullable="false" MaxLength="120" sap:unicode="false" sap:label="F/P/S Division" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Address" Type="Edm.String" Nullable="false" MaxLength="80" sap:unicode="false" sap:label="F/P/S Address" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="FpscdDescription" Type="Edm.String" Nullable="false" MaxLength="60" sap:unicode="false" sap:label="F/P/S Description" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="Currency" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Waers"/>
+                </Key>
+                <Property Name="Waers" Type="Edm.String" Nullable="false" MaxLength="5" sap:unicode="false" sap:label="Currency" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" sap:semantics="currency-code"/>
+            </EntityType>
+            <EntityType Name="Uom" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="UoM"/>
+                </Key>
+                <Property Name="UoM" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Int. meas. unit" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" sap:semantics="unit-of-measure"/>
+            </EntityType>
+            <EntityType Name="AssetHistory" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="QuotationNum"/>
+                    <PropertyRef Name="AssetId"/>
+                </Key>
+                <Property Name="QuotationNum" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Quotation Number" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="Advertiser" Type="Edm.String" MaxLength="10" sap:unicode="false" sap:label="Business Partner Number" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="Status" Type="Edm.String" MaxLength="3" sap:unicode="false" sap:label="Status" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="ContractNum" Type="Edm.String" MaxLength="10" sap:unicode="false" sap:label="Contract Number" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="ContractAccount" Type="Edm.String" MaxLength="12" sap:unicode="false" sap:label="Contract Account" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="ContractObject" Type="Edm.String" MaxLength="20" sap:unicode="false" sap:label="Contract Object" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="InvoiceNo" Type="Edm.String" MaxLength="12" sap:unicode="false" sap:label="Invoice" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="ParkInvoiceNo" Type="Edm.String" MaxLength="10" sap:unicode="false" sap:label="Invoice" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="FiscalYear" Type="Edm.String" MaxLength="4" sap:unicode="false" sap:label="Fiiscal Year" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="CompanyCode" Type="Edm.String" MaxLength="4" sap:unicode="false" sap:label="Comapny Code" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="StatusDescription" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Status Description" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ContractAccountDesc" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Contract Account Description" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ContractObjectDesc" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Contract Object Description" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="AssetId" Type="Edm.String" Nullable="false" MaxLength="12" sap:unicode="false" sap:label="Asset Id" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="AssetDescr" Type="Edm.String" MaxLength="255" sap:unicode="false" sap:label="Asset Descr" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="FromDate" Type="Edm.DateTime" Precision="0" sap:unicode="false" sap:label="From Date" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ToDate" Type="Edm.DateTime" Precision="0" sap:unicode="false" sap:label="To Date" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <Association Name="Asset_To_Histroy" sap:content-version="1">
+                <End Type="ZADVERTISING_SPONSORSHIP_SRV.AssetInventoryRegister" Multiplicity="*" Role="FromRole_Asset_To_Histroy"/>
+                <End Type="ZADVERTISING_SPONSORSHIP_SRV.AssetHistory" Multiplicity="*" Role="ToRole_Asset_To_Histroy"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_Asset_To_Histroy">
+                        <PropertyRef Name="Anln1"/>
+                    </Principal>
+                    <Dependent Role="ToRole_Asset_To_Histroy">
+                        <PropertyRef Name="AssetId"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="Quotation_To_PricingComponent" sap:content-version="1">
+                <End Type="ZADVERTISING_SPONSORSHIP_SRV.Quotation" Multiplicity="1" Role="FromRole_Quotation_To_PricingComponent"/>
+                <End Type="ZADVERTISING_SPONSORSHIP_SRV.PricingComponent" Multiplicity="*" Role="ToRole_Quotation_To_PricingComponent"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_Quotation_To_PricingComponent">
+                        <PropertyRef Name="QuotationNum"/>
+                    </Principal>
+                    <Dependent Role="ToRole_Quotation_To_PricingComponent">
+                        <PropertyRef Name="QuotationNum"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="Quotation_To_ItemDetails" sap:content-version="1">
+                <End Type="ZADVERTISING_SPONSORSHIP_SRV.Quotation" Multiplicity="1" Role="FromRole_Quotation_To_ItemDetails"/>
+                <End Type="ZADVERTISING_SPONSORSHIP_SRV.ItemDetails" Multiplicity="*" Role="ToRole_Quotation_To_ItemDetails"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_Quotation_To_ItemDetails">
+                        <PropertyRef Name="QuotationNum"/>
+                    </Principal>
+                    <Dependent Role="ToRole_Quotation_To_ItemDetails">
+                        <PropertyRef Name="QuotationNum"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <EntityContainer Name="ZADVERTISING_SPONSORSHIP_SRV_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx">
+                <EntitySet Name="QuotationSet" EntityType="ZADVERTISING_SPONSORSHIP_SRV.Quotation" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                <EntitySet Name="ItemDetailsSet" EntityType="ZADVERTISING_SPONSORSHIP_SRV.ItemDetails" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                <EntitySet Name="PricingComponentSet" EntityType="ZADVERTISING_SPONSORSHIP_SRV.PricingComponent" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                <EntitySet Name="FileSet" EntityType="ZADVERTISING_SPONSORSHIP_SRV.File" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                <EntitySet Name="PartnerSet" EntityType="ZADVERTISING_SPONSORSHIP_SRV.Partner" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                <EntitySet Name="AssetInventoryRegisterSet" EntityType="ZADVERTISING_SPONSORSHIP_SRV.AssetInventoryRegister" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                <EntitySet Name="ApproverSet" EntityType="ZADVERTISING_SPONSORSHIP_SRV.Approver" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                <EntitySet Name="UsersSet" EntityType="ZADVERTISING_SPONSORSHIP_SRV.Users" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                <EntitySet Name="AssetsSet" EntityType="ZADVERTISING_SPONSORSHIP_SRV.Assets" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                <EntitySet Name="AttachmentsListSet" EntityType="ZADVERTISING_SPONSORSHIP_SRV.AttachmentsList" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                <EntitySet Name="ContractAccountCategorySet" EntityType="ZADVERTISING_SPONSORSHIP_SRV.ContractAccountCategory" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                <EntitySet Name="PricingTypesSet" EntityType="ZADVERTISING_SPONSORSHIP_SRV.PricingTypes" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                <EntitySet Name="InstanceDetailSet" EntityType="ZADVERTISING_SPONSORSHIP_SRV.InstanceDetail" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                <EntitySet Name="FinCodesSet" EntityType="ZADVERTISING_SPONSORSHIP_SRV.FinCodes" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="FpsCodesSet" EntityType="ZADVERTISING_SPONSORSHIP_SRV.FpsCodes" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="CurrencySet" EntityType="ZADVERTISING_SPONSORSHIP_SRV.Currency" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="UomSet" EntityType="ZADVERTISING_SPONSORSHIP_SRV.Uom" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="AssetHistorySet" EntityType="ZADVERTISING_SPONSORSHIP_SRV.AssetHistory" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                <AssociationSet Name="Quotation_To_PricingComponentSet" Association="ZADVERTISING_SPONSORSHIP_SRV.Quotation_To_PricingComponent" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="QuotationSet" Role="FromRole_Quotation_To_PricingComponent"/>
+                    <End EntitySet="PricingComponentSet" Role="ToRole_Quotation_To_PricingComponent"/>
+                </AssociationSet>
+                <AssociationSet Name="Quotation_To_ItemDetailsSet" Association="ZADVERTISING_SPONSORSHIP_SRV.Quotation_To_ItemDetails" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="QuotationSet" Role="FromRole_Quotation_To_ItemDetails"/>
+                    <End EntitySet="ItemDetailsSet" Role="ToRole_Quotation_To_ItemDetails"/>
+                </AssociationSet>
+                <AssociationSet Name="Asset_To_HistroySet" Association="ZADVERTISING_SPONSORSHIP_SRV.Asset_To_Histroy" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="AssetInventoryRegisterSet" Role="FromRole_Asset_To_Histroy"/>
+                    <End EntitySet="AssetHistorySet" Role="ToRole_Asset_To_Histroy"/>
+                </AssociationSet>
+            </EntityContainer>
+            <atom:link rel="self" href="http://cop-sapdevfio.ptbolocal.ca:8000/sap/opu/odata/sap/ZADVERTISING_SPONSORSHIP_SRV/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+            <atom:link rel="latest-version" href="http://cop-sapdevfio.ptbolocal.ca:8000/sap/opu/odata/sap/ZADVERTISING_SPONSORSHIP_SRV/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

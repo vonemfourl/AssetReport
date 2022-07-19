@@ -1,0 +1,22 @@
+# yaml-language-server: $schema=https://sap.github.io/ui5-tooling/schema/ui5.yaml.json
+
+specVersion: '2.4'
+metadata:
+  name: 'zamassetreport'
+type: application
+builder:
+  resources:
+    excludes:
+      - /test/**
+      - /localService/**
+  customTasks:
+    - name: deploy-to-abap
+      afterTask: generateCachebusterInfo
+      configuration:
+        target:
+          url: http://cop-sapdevfio.ptbolocal.ca:8000/
+        app:
+          name: ZAM_ASSET_RPT
+          description: Asset Report
+          package: ZFI
+          transport: DFIK900990

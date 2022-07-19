@@ -1,0 +1,41 @@
+{
+    "fileName": "id_1655653911998_216_propertyChange",
+    "fileType": "change",
+    "changeType": "propertyChange",
+    "moduleName": "",
+    "reference": "ca.cop.zamassetreport",
+    "packageName": "",
+    "content": {
+        "property": "showTablePersonalisation",
+        "newValue": true
+    },
+    "selector": {
+        "id": "ca.cop.zamassetreport::sap.suite.ui.generic.template.ListReport.view.ListReport::AssetInventoryRegisterSet--listReport",
+        "idIsLocal": false,
+        "type": "sap.ui.comp.smarttable.SmartTable"
+    },
+    "layer": "CUSTOMER_BASE",
+    "texts": {},
+    "namespace": "apps/ca.cop.zamassetreport/changes/",
+    "projectId": "ca.cop.zamassetreport",
+    "creation": 1655653911998,
+    "originalLanguage": "",
+    "support": {
+        "generator": "changeUtils: SAPFioriTools",
+        "service": "",
+        "user": "",
+        "sapui5Version": "1.60.9",
+        "sourceChangeFileName": "",
+        "compositeCommand": ""
+    },
+    "oDataInformation": {},
+    "dependentSelector": {},
+    "validAppVersions": {
+        "from": "1.0.0",
+        "to": "1.0.0",
+        "creation": "1.0.0"
+    },
+    "jsOnly": false,
+    "variantReference": "",
+    "appDescriptorChange": false
+}

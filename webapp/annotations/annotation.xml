@@ -1,0 +1,259 @@
+<edmx:Edmx xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Version="4.0">
+    <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/HTML5.xml">
+        <edmx:Include Namespace="com.sap.vocabularies.HTML5.v1" Alias="HTML5" />
+    </edmx:Reference>
+    <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.Odata.Capabilities.V1.xml">
+        <edmx:Include Namespace="Org.OData.Capabilities.V1" Alias="Capabilities" />
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/sap/ZADVERTISING_SPONSORSHIP_SRV/$metadata">
+        <edmx:Include Namespace="ZADVERTISING_SPONSORSHIP_SRV" Alias="Metadata" />
+    </edmx:Reference>
+    <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/Common.xml">
+        <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common" />
+    </edmx:Reference>
+    <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/UI.xml">
+        <edmx:Include Namespace="com.sap.vocabularies.UI.v1" Alias="UI" />
+    </edmx:Reference>
+    <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/Communication.xml">
+        <edmx:Include Namespace="com.sap.vocabularies.Communication.v1" Alias="Communication" />
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/sap/ZADVERTISING_SPONSORSHIP_SRV/$metadata">
+        <edmx:Include Namespace="ZADVERTISING_SPONSORSHIP_SRV" />
+    </edmx:Reference>
+    <edmx:DataServices>
+        <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="ca.cop">
+            <Annotations Target="Metadata.AssetInventoryRegister">
+                <Annotation Term="com.sap.vocabularies.UI.v1.PresentationVariant">
+                    <Record>
+                        <PropertyValue Property="Visualizations">
+                            <Collection>
+                                <AnnotationPath>@UI.LineItem</AnnotationPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="SortOrder">
+                            <Collection>
+                                <Record>
+                                    <PropertyValue Property="Property" PropertyPath="Anln1" />
+                                    <PropertyValue Property="Descending" Bool="true" />
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.SemanticKey">
+                    <Collection>
+                        <PropertyPath>Anln1</PropertyPath>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="UI.HeaderInfo">
+                    <Record Type="UI.HeaderInfoType">
+                        <PropertyValue Property="TypeName" String="Asset" />
+                        <PropertyValue Property="TypeNamePlural" String="Assets" />
+                    </Record>
+                </Annotation>
+                <Annotation Term="UI.SelectionFields" >
+                    <Collection>
+                        <PropertyPath>Anln1</PropertyPath>
+                        <PropertyPath>AssetName</PropertyPath>
+                        <PropertyPath>Anlhtxt</PropertyPath>
+                        <PropertyPath>Fincd</PropertyPath>
+                        <PropertyPath>FincdText</PropertyPath>
+                        <PropertyPath>AssetSubCat</PropertyPath>
+                        <PropertyPath>AssetSubCatDescr</PropertyPath>
+                        <PropertyPath>AssetCat</PropertyPath>
+                        <PropertyPath>Vbegdat</PropertyPath>
+                        <PropertyPath>Venddat</PropertyPath>
+                        <PropertyPath>Ansta</PropertyPath>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="UI.LineItem">
+                    <Collection>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="Anln1" />
+                            <Annotation Term="com.sap.vocabularies.HTML5.v1.CssDefaults">
+                                <Record>
+                                    <PropertyValue Property="width" String="8rem" />
+                                </Record>
+                            </Annotation>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="AssetName" />
+                            <Annotation Term="com.sap.vocabularies.HTML5.v1.CssDefaults">
+                                <Record>
+                                    <PropertyValue Property="width" String="10rem" />
+                                </Record>
+                            </Annotation>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="Anlhtxt" />
+                            <Annotation Term="com.sap.vocabularies.HTML5.v1.CssDefaults">
+                                <Record>
+                                    <PropertyValue Property="width" String="10rem" />
+                                </Record>
+                            </Annotation>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="Specifics" />
+                            <Annotation Term="com.sap.vocabularies.HTML5.v1.CssDefaults">
+                                <Record>
+                                    <PropertyValue Property="width" String="8rem" />
+                                </Record>
+                            </Annotation>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="Fincd" />
+                            <Annotation Term="com.sap.vocabularies.HTML5.v1.CssDefaults">
+                                <Record>
+                                    <PropertyValue Property="width" String="8rem" />
+                                </Record>
+                            </Annotation>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="FincdText" />
+                            <Annotation Term="com.sap.vocabularies.HTML5.v1.CssDefaults">
+                                <Record>
+                                    <PropertyValue Property="width" String="8rem" />
+                                </Record>
+                            </Annotation>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="AssetSubCat" />
+                            <Annotation Term="com.sap.vocabularies.HTML5.v1.CssDefaults">
+                                <Record>
+                                    <PropertyValue Property="width" String="8rem" />
+                                </Record>
+                            </Annotation>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="AssetSubCatDescr" />
+                            <Annotation Term="com.sap.vocabularies.HTML5.v1.CssDefaults">
+                                <Record>
+                                    <PropertyValue Property="width" String="8rem" />
+                                </Record>
+                            </Annotation>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="AssetAddress" />
+                            <Annotation Term="com.sap.vocabularies.HTML5.v1.CssDefaults">
+                                <Record>
+                                    <PropertyValue Property="width" String="10rem" />
+                                </Record>
+                            </Annotation>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="AssetCat" />
+                            <Annotation Term="com.sap.vocabularies.HTML5.v1.CssDefaults">
+                                <Record>
+                                    <PropertyValue Property="width" String="8rem" />
+                                </Record>
+                            </Annotation>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="StatusDescription" />
+                            <Annotation Term="com.sap.vocabularies.HTML5.v1.CssDefaults">
+                                <Record>
+                                    <PropertyValue Property="width" String="10rem" />
+                                </Record>
+                            </Annotation>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="LegacyId" />
+                            <Annotation Term="com.sap.vocabularies.HTML5.v1.CssDefaults">
+                                <Record>
+                                    <PropertyValue Property="width" String="8rem" />
+                                </Record>
+                            </Annotation>
+                        </Record>
+                    </Collection>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ZADVERTISING_SPONSORSHIP_SRV.AssetInventoryRegister/ToHistory">
+                <Annotation Term="UI.LineItem">
+                    <Collection>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="AssetId" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="AssetDescr" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="QuotationNum" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="ContractNum" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="FromDate" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="ToDate" />
+                        </Record>
+                    </Collection>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ZADVERTISING_SPONSORSHIP_SRV.AssetInventoryRegister/Anln1" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="com.sap.vocabularies.Common.v1.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="Asset" />
+                        <PropertyValue Property="CollectionPath" String="AssetInventoryRegisterSet" />
+                        <PropertyValue Property="SearchSupported" Bool="true" />
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="Anln1" />
+                                    <PropertyValue Property="ValueListProperty" String="Anln1" />
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ZADVERTISING_SPONSORSHIP_SRV.AssetInventoryRegister/Fincd" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="com.sap.vocabularies.Common.v1.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="Fincd" />
+                        <PropertyValue Property="CollectionPath" String="FinCodesSet" />
+                        <PropertyValue Property="SearchSupported" Bool="true" />
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="Fincd" />
+                                    <PropertyValue Property="ValueListProperty" String="Fincd" />
+                                </Record>
+                                <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="FincdText" />
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ZADVERTISING_SPONSORSHIP_SRV.AssetInventoryRegister/AssetSubCat" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="com.sap.vocabularies.Common.v1.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="AssetSubCat" />
+                        <PropertyValue Property="CollectionPath" String="FpsCodesSet" />
+                        <PropertyValue Property="SearchSupported" Bool="true" />
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="AssetSubCat" />
+                                    <PropertyValue Property="ValueListProperty" String="Fpscd" />
+                                </Record>
+                                <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="FpscdDescription" />
+                                </Record>
+                                <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="FpscdText" />
+                                </Record>
+                                <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="Address" />
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>
